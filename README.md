@@ -52,16 +52,16 @@ Uma página que permite o cadastro de novas perguntas no banco de dados. Cada pe
 
 ### 2\. Jogabilidade "Show do Milhão"
 
-    ***Início do Jogo:*** Ao acessar a aplicação, o usuário pode clicar em "Começar o Jogo" para iniciar a partida (não é necessário login).
-    ***Sorteio de Perguntas:*** As perguntas são sorteadas do banco de dados de forma aleatória conforme a dificuldade. A progressão segue:
+    * **Início do Jogo:*** Ao acessar a aplicação, o usuário pode clicar em "Começar o Jogo" para iniciar a partida (não é necessário login).
+    * **Sorteio de Perguntas:*** As perguntas são sorteadas do banco de dados de forma aleatória conforme a dificuldade. A progressão segue:
     **Perguntas 1 a 5** → nível Fácil
     **Perguntas 6 a 10** → nível Médio
     **Perguntas 11 a 15** → nível Difícil
-    ***Pontuação:***
+    * **Pontuação:***
     **Acerto:** Se o jogador acertar, ele ganha pontos crescentes conforme o nível da pergunta e avança para a próxima.
     **Erro:** Se o jogador errar, perde metade da pontuação acumulada e o jogo é encerrado.
-    ***Objetivo do Jogo:*** Acertar as 15 perguntas e atingir a maior pontuação possível, como no programa original.
-    ***Persistência de Dados:*** Os dados da partida (questões já sorteadas, pontuação e progresso) são mantidos em variáveis de sessão para garantir o controle da rodada.
+    * **Objetivo do Jogo:*** Acertar as 15 perguntas e atingir a maior pontuação possível, como no programa original.
+    * **Persistência de Dados:*** Os dados da partida (questões já sorteadas, pontuação e progresso) são mantidos em variáveis de sessão para garantir o controle da rodada.
 
 ### 3\. Ajudas (Desafio para Nota Máxima)
 
@@ -80,7 +80,6 @@ Os principais arquivos que compõem a aplicação são:
   * **`insere_questao.php`**: Formulário PHP para inserir novas questões no banco de dados.
   * **`novo_jogo.php`**: Inicia uma nova partida do jogo.
   * **`processa_resposta.php`**: Lida com a submissão das respostas do jogador, verifica a correção e atualiza a pontuação.
-  * **`questoes_valores.php`**: (Provável) Gerencia os valores de pontuação para cada questão ou nível de dificuldade.
   * **`sorteia_questao.php`**: Responsável por sortear a próxima pergunta de acordo com o nível de dificuldade e o progresso do jogador.
   * **`./imagens/`**: Pasta contendo os recursos visuais da aplicação.
   * **`style.css`**: Folha de estilos CSS para a apresentação visual da aplicação.

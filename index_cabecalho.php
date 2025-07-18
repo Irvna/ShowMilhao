@@ -46,7 +46,7 @@
 
     <div id="cabecalho">
         <div class="titulo">
-            <a href="novo_jogo.php">🏆 Show do Milhão</a>
+            <a href="inicio_jogo.php">🏆 Show do Milhão</a>
         </div>
         <div class="centro">
             <div>
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="acoes">
-            <a href="#">Configurações</a>
+            <a href="insere_questao.php">Adicionar Questão</a>
         </div>
     </div>
 

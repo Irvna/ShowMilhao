@@ -15,6 +15,7 @@
         if (empty($pergunta) || empty($alternativa_a) || empty($alternativa_b) || empty($alternativa_c) || empty($alternativa_d) || empty($correta) || empty($dificuldade) || empty($categoria)) {
             //die("Todos os campos devem ser preenchidos.");
             include "./mensagens/campos_devem_preenchidos.php";
+            exit;
         }
 
         $sql = "INSERT INTO questoes_show_do_milhao (pergunta, alternativa_a, alternativa_b, alternativa_c, alternativa_d, correta, dificuldade, categoria) VALUES('$pergunta','$alternativa_a','$alternativa_b','$alternativa_c','$alternativa_d','$correta','$dificuldade','$categoria')";
@@ -25,14 +26,15 @@
         }else{
             //echo "Cadastro de questão realizado com sucesso! <a href='novo_jogo.php'>Ir para o Jogo</a></br>";
             include "./mensagens/cadastro_sucesso.php";
+            echo "<script>document.getElementById('form_inserir_quest').reset();</script>";
         }               
     }
 ?>
 
 <head>
-    <link rel="icon" href="img/1.png" type="imagex/x-icon">
+    <link rel="icon" href="img/2.png" type="imagex/x-icon">
     <title>Show do Milhão</title>
-    <link rel="stylesheet" href="style_inserir.css"> </head>
+    <link rel="stylesheet" href="./css/style_inserir.css">
 </head>
     <?php
         include "index_cabecalho.php";
@@ -95,7 +97,7 @@
                     <input type="submit" name="questoes_show_do_milhao" value="Cadastrar" id="BotaoCadastrar">      
             </form>
         </div>
-        <a href='novo_jogo.php' id="BotaoJogo">Ir para o Jogo</a>  
+        <a href='inicio_jogo.php' id="BotaoJogo">Ir para o Jogo</a>  
     </div>
 
 </body>
