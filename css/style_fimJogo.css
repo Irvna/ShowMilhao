@@ -15,11 +15,11 @@ body {
     flex-direction: column;
 }
 
-#bloco_inicio{
+#bloco{
     color: #FFD700;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 100px 30px 30px 30px;
     justify-content: center;
     flex-direction: column;
     margin-top: 100px;
@@ -30,37 +30,28 @@ body {
     border-radius: 10px;
 }
 
-#bloco_inicio img{
-    width: 300px;
-}
-
-#bloco_inicio p{
-    padding: 5px;
-    font-size: 18px;
-    color: #ffd90088;
-}
-
-#bloco_inicio a{
+#BotaoJogo{
     background-color: #FFD700; 
+    border: solid 1px #705f00;
     color: #111;
-    border: solid 1px #ffd90063;
-    padding: 20px 30px 20px 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    text-align: center;
     text-decoration: none;
+    text-align: center;
+    padding: 10px 40px 10px 40px;
+    margin: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+} 
+
+#pont{
+    color: #FFD700;
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: solid 1px;
+    border-radius: 10px;
 }
 
-#questao form{
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    padding: 40px;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 100px;
-    background-color: #141414;
-    box-shadow: 1px 2px 15px rgba(255, 215, 0, 0.3);
-    width: 40%;
-    border-radius: 10px;
+#bloco h1{
+    padding: 5px;
+    color: #ffd90088;
 }

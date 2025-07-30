@@ -1,3 +1,8 @@
+<?php 
+    if (session_status() === PHP_SESSION_NONE) {//verifica se possui uma secao iniciada ou nao
+        session_start();
+    }
+?>
 <body style="margin: 0; font-family: sans-serif;">
     <style>
         #cabecalho {
@@ -45,21 +50,22 @@
     </style>
 
     <div id="cabecalho">
+        <?php $base_url = "/T1"; ?>
         <div class="titulo">
-            <a href="inicio_jogo.php">🏆 Show do Milhão</a>
+        <a href="<?php echo $base_url; ?>/inicio_jogo.php">🏆 Show do Milhão</a>
         </div>
         <div class="centro">
             <div>
                 <div>Questão</div>
-                <div><strong>0/0</strong></div>
+                <div><p><strong><?php echo $_SESSION['pergunta']-1; ?></strong><p></div>
             </div>
             <div>
                 <div>Pontuação</div>
-                <div><strong>0</strong></div>
+                <div><p><strong><?php echo $_SESSION['pontuacao']; ?></strong><p></div>
             </div>
         </div>
         <div class="acoes">
-            <a href="insere_questao.php">Adicionar Questão</a>
+            <a href="./questao/insere_questao.php">Adicionar Questão</a>
         </div>
     </div>
 

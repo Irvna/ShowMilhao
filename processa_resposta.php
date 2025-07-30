@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("ConectaBanco.php");
-include("questoes_valores.php");
+include("./questao/questoes_valores.php");
 
 // Verifica se o formulário foi enviado
 if (isset($_POST['resposta'])) {
@@ -101,7 +101,7 @@ if (isset($_POST['resposta'])) {
             border-radius: 10px;
         }
 
-        #JogarNovamente{
+        #botao{
             background-color: #FFD700; 
             border: solid 1px rgba(255, 215, 0);
             color: #000000ff;
@@ -110,6 +110,7 @@ if (isset($_POST['resposta'])) {
             padding: 10px 40px 10px 40px;
             border-radius: 10px;
             font-size: 15px;
+            margin: 10px;   
         }
     </style>
 </head>
@@ -121,17 +122,26 @@ if (isset($_POST['resposta'])) {
         <?php if ($resposta_certa): ?>
             <h2>Resposta correta! Você ganhou pontos!</h2>
             <h3 id="pont">Pontuação Total Atual: <?= $pontuacao ?> pontos</h3>
-            <script>
-                setTimeout(() => {
-                    window.location.href = 'sorteia_questao.php';
-                }, 3000);
-            </script>
+            <?php
+                if($_SESSION['pergunta'] <= 15){
+                    echo "<script>
+                        setTimeout(() => {
+                            window.location.href = './questao/sorteia_questao.php';
+                        }, 3000);
+                    </script>";
+                }elseif($_SESSION['pergunta'] == 16){
+                    echo "<a href='./questao/questao_topa_tudo.php' id='botao'>Topa Tudo</a>";
+                    echo "<a href='fim_jogo.php' id='botao'>Parar aqui!</a>";
+                }else{//se acerto a questao topa tudo o jogo foi finalizado
+                    header("Location: ./fim_jogo.php");
+                }
+            ?>
         <?php else: ?>
             <h2>Resposta errada.</h2>
             <p>Resposta correta: <strong><?= $correta ?></strong></p>
             <p>Você perdeu, mas manteve metade dos seus pontos!</p>
             <h3 id="pont">Pontuação Total: <?= $pontuacao ?> pontos</h3><br>
-            <a href="inicio_jogo.php" id="JogarNovamente">Jogar Novamente</a>
+            <a href="inicio_jogo.php" id="botao">Jogar Novamente</a>
         <?php endif; ?>
     </div>
 </div>

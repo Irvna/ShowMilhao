@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("ConectaBanco.php");
-    include("questoes_valores.php");
+    include("./questao/questoes_valores.php");
 
     //verifica qual foi o id sorteado
     $id_questao = $_SESSION['questao_atual'] ?? null;
@@ -42,6 +42,6 @@
             <button type="submit" name="resposta" value="D" class="opcao"><?= $questao['alternativa_d'] ?></button>
         </form>
     </div>
-    <a href='#' id="BotaoJogo">Parar aqui!</a>
+    <a href='fim_jogo.php' id="BotaoJogo">Parar aqui!</a>
 </div>
 </body>

@@ -15,4 +15,5 @@
             <a href='novo_jogo.php' id="BotaoJogo">Iniciar Jogo</a>        
             </form>
         </div>
-    </body>
+    </div>
+    </body><!--A tag body é aberta no cabeçalho-->

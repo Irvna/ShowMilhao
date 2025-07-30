@@ -2,7 +2,7 @@
     session_start();
     include("ConectaBanco.php");
 
-    $_SESSION['pergunta']       = 1;
+    $_SESSION['pergunta']       = 15;
     $_SESSION['pulos']          = 0;
     $_SESSION['cartas']         = 1;
     $_SESSION['categoria']      = "";
