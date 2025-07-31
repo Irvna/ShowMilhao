@@ -1,7 +1,7 @@
 <head>
     <link rel="icon" href="img/1.png" type="imagex/x-icon">
     <title>Show do Milhão</title>
-    <link rel="stylesheet" href="./css/style_inserir.css"> </head>
+    <link rel="stylesheet" href="../css/style_inserir.css"> </head>
 </head>
 
 <div class="msg">
@@ -9,6 +9,6 @@
     <br>
     <br>
     <div>
-        <a href="insere_questao.php" class="BotaoMsg">Voltar</a>
+        <a href="../questao/insere_questao.php" class="BotaoMsg">Voltar</a>
     </div>
 </div>

@@ -3,12 +3,12 @@ session_start();
 include("ConectaBanco.php");
 include("./questao/questoes_valores.php");
 
-// Verifica se o formulário foi enviado
+//Verifica se o formulário foi enviado
 if (isset($_POST['resposta'])) {
     $q_id = $_POST['id_questao'];
     $resposta = $_POST['resposta'];
 
-    // Recupera a resposta correta da questão
+    //Recupera a resposta correta da questão
     $sql = "SELECT correta FROM questoes_show_do_milhao WHERE id = $q_id";
     $res = $conexao->query($sql);
     $dados = mysqli_fetch_assoc($res);
@@ -19,7 +19,7 @@ if (isset($_POST['resposta'])) {
 
     if ($resposta_certa) {
         $_SESSION['pergunta'] += 1;
-        if($_SESSION['pontuacao'] == 0){
+        if($_SESSION['pontuacao'] == 0){//se é a primeira questão, não necessita incrementar o 0
             $_SESSION['pontuacao'] = $questao_valor[$_SESSION['pergunta'] - 2];
         }else{
             $_SESSION['pontuacao'] += $questao_valor[$_SESSION['pergunta'] - 2];
@@ -123,13 +123,15 @@ if (isset($_POST['resposta'])) {
             <h2>Resposta correta! Você ganhou pontos!</h2>
             <h3 id="pont">Pontuação Total Atual: <?= $pontuacao ?> pontos</h3>
             <?php
+                //se a perunta é menor ou igual a 15 uma nova questão é sorteada
                 if($_SESSION['pergunta'] <= 15){
                     echo "<script>
                         setTimeout(() => {
                             window.location.href = './questao/sorteia_questao.php';
                         }, 3000);
                     </script>";
-                }elseif($_SESSION['pergunta'] == 16){
+                }elseif($_SESSION['pergunta'] == 16){ //se for a 16º questao o programa pergunta se deseja ver a 
+                    //questao topa tudo ou finalizar ali
                     echo "<a href='./questao/questao_topa_tudo.php' id='botao'>Topa Tudo</a>";
                     echo "<a href='fim_jogo.php' id='botao'>Parar aqui!</a>";
                 }else{//se acerto a questao topa tudo o jogo foi finalizado
@@ -140,8 +142,12 @@ if (isset($_POST['resposta'])) {
             <h2>Resposta errada.</h2>
             <p>Resposta correta: <strong><?= $correta ?></strong></p>
             <p>Você perdeu, mas manteve metade dos seus pontos!</p>
-            <h3 id="pont">Pontuação Total: <?= $pontuacao ?> pontos</h3><br>
-            <a href="inicio_jogo.php" id="botao">Jogar Novamente</a>
+            <script>
+                setTimeout(() => {
+                    window.location.href = './fim_jogo.php';
+                }, 3000);
+            </script>
+            
         <?php endif; ?>
     </div>
 </div>

@@ -2,7 +2,8 @@
     session_start();
     include("ConectaBanco.php");
 
-    $_SESSION['pergunta']       = 15;
+    //inicia um novo jogos com variaveis novas e inicializadas
+    $_SESSION['pergunta']       = 1;
     $_SESSION['pulos']          = 0;
     $_SESSION['cartas']         = 1;
     $_SESSION['categoria']      = "";
@@ -38,7 +39,7 @@
         $_SESSION['questao_atual'] = $aux;
         array_push($_SESSION['perguntas_sorteadas'], $_SESSION['questao_atual'] );
     }
-
+    //retorna para a area de jogo
     header("location:area_jogo.php");
     exit;
 ?>

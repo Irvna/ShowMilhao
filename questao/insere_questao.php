@@ -1,6 +1,7 @@
 <?php
+    //conecta no banco de dados
     include("../ConectaBanco.php");
-
+    //inicia no metodo post as variaveis do bd
     if( isset($_POST['questoes_show_do_milhao'])){
         $pergunta = $_POST['pergunta'];
         $alternativa_a = $_POST['alternativa_a'];
@@ -13,20 +14,20 @@
 
         //verifica se todos os campos foram preenchidos
         if (empty($pergunta) || empty($alternativa_a) || empty($alternativa_b) || empty($alternativa_c) || empty($alternativa_d) || empty($correta) || empty($dificuldade) || empty($categoria)) {
-            //die("Todos os campos devem ser preenchidos.");
+            //aparece somente a msg de erro e a opção de voltar para a tela de cadastro
             include "../mensagens/campos_devem_preenchidos.php";
             exit;
         }
-
+        //insere no banco de dados
         $sql = "INSERT INTO questoes_show_do_milhao (pergunta, alternativa_a, alternativa_b, alternativa_c, alternativa_d, correta, dificuldade, categoria) VALUES('$pergunta','$alternativa_a','$alternativa_b','$alternativa_c','$alternativa_d','$correta','$dificuldade','$categoria')";
         
-            
+        //verifica se inserção e conexão com o banco de dados deu certo    
         if(!$conexao->query($sql)){
             die("Houve um erro: " .mysqli_error($bd->con));
         }else{
-            //echo "Cadastro de questão realizado com sucesso! <a href='novo_jogo.php'>Ir para o Jogo</a></br>";
+            //aparece somente a msg de sucesso e a opção de ir para a tela inicial do jogo
             include "../mensagens/cadastro_sucesso.php";
-            echo "<script>document.getElementById('form_inserir_quest').reset();</script>";
+            exit;
         }               
     }
 ?>
@@ -43,7 +44,7 @@
         <div id="inserir_quest">
             <h1>Insira uma nova pergunta no Banco de Dados</h1>
             <br>
-            <form action="./questao/insere_questao.php" method="post" id="form_inserir_quest">
+            <form action="./insere_questao.php" method="post" id="form_inserir_quest">
                     <p> Pergunta: * <input name="pergunta" type="text" placeholder="Qual a pergunta?"></p>
                     <p>Dificuldade: * 
                         <select name="dificuldade">

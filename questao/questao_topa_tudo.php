@@ -3,7 +3,7 @@
 session_start();
 include("../ConectaBanco.php");
 include("./questoes_valores.php");
-
+//sorteia apenas uma questão para o topa tudo
 if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao') {
     $questao_id = -1;
     $_SESSION['dificuldade'] = 'topatudo';
