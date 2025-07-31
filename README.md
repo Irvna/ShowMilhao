@@ -65,14 +65,23 @@ O projeto possui uma interface de administração que permite cadastrar novas pe
 └─ sorteia_questao.php
 
 area_jogo.php
+
 BD.sql
+
 ConectaBanco.php
+
 fim_jogo.php
+
 index_cabecalho.php
+
 inicio_jogo.php
+
 novo_jogo.php
+
 processa_resposta.php
+
 README.md
+
 resultado_resposta.php
 
 ## Banco de Dados (BD.sql)
