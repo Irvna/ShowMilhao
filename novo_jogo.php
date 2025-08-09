@@ -16,7 +16,7 @@
 
     //conta quantas questões tem no banco. Ajustar para categorias.
     $SQL = "SELECT COUNT(*) AS total FROM questoes_show_do_milhao";
-    if(strlen($_SESSION['categoria']) >0){
+    if(strlen($_SESSION['categoria']) > 0){
         $cat = $_SESSION['categoria'];
         $SQL = $SQL . " WHERE categoria ='$cat'";
     }
