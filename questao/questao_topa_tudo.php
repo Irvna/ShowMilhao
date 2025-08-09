@@ -10,7 +10,7 @@ if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao
 
 
     do {
-         // Sorteia uma questão aleatória da dificuldade desejada
+        // Sorteia uma questão aleatória da dificuldade desejada
         $sql = "SELECT id, dificuldade FROM questoes_show_do_milhao 
                 WHERE dificuldade = '{$_SESSION['dificuldade']}' 
                 ORDER BY RAND() 
@@ -45,7 +45,7 @@ if (isset($_SESSION['questao_atual'])) {
 }
 
 ?>
-
+<!--HTML-->
 
 <head>
     <link rel="icon" href="img/2.png" type="imagex/x-icon">
@@ -57,8 +57,9 @@ if (isset($_SESSION['questao_atual'])) {
 
 <div class="wrapper">
     <div id="questao">
+        <img src='../img/sorte.png' alt='trevo de 4 folhas amarelo' />
         <h1>TOPA TUDO OU NADA!</h1><br>
-        <p id="valor">Valor Máximo: <?=$questao_valor[15]?></p>
+        <p id="valor">Valor Máximo: <?= $questao_valor[15] ?></p>
         <br>
         <h2><?= $questao['pergunta'] ?></h2>
         <br>
@@ -73,3 +74,76 @@ if (isset($_SESSION['questao_atual'])) {
     </div>
 </div>
 </body>
+
+<!--CSS-->
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        font-family: sans-serif;
+        font-size: 0.9em;
+        background-color: #111;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #questao {
+        color: #FFD700;
+        display: flex;
+        align-items: center;
+        padding: 40px;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 50px;
+        background-color: #141414;
+        box-shadow: 1px 2px 15px rgba(255, 215, 0, 0.3);
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    #questao h3,
+    #questao h1 {
+        color: rgba(255, 215, 0, 0.5);
+    }
+
+    #questao h2 {
+        margin-top: 40px;
+    }
+
+    #questao form {
+        margin-top: 20px;
+    }
+
+    #questao button {
+        margin-bottom: 10px;
+        padding: 8px;
+        width: 680px;
+        border-radius: 10px;
+        background-color: #FFD700;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #questao button:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 5px 10px rgba(255, 215, 0, 0.3);
+    }
+
+    #questao img {
+        width: 200px;
+        margin-bottom: 25px;
+    }
+
+    #valor {
+        margin-top: 5px;
+        color: #FFD700;
+        font-size: 18px;
+    }
+</style>

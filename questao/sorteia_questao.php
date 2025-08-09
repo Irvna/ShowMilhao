@@ -3,7 +3,7 @@ session_start();
 include("../ConectaBanco.php");
 
 //sorteia as questões entre fácil, médio e difícil. Exceto a questão do topa tudo
-if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao') {
+if (($_SESSION['status'] == 'acertou_questao' || $_SESSION['status'] == 'pulou_questao') && isset($_SESSION['questao_atual'])) {
     $questao_id = -1;
 
     //define a dificuldade com base na pergunta atual
@@ -16,7 +16,7 @@ if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao
     }
 
     do {
-         //Sorteia uma questão aleatória da dificuldade desejada
+        //Sorteia uma questão aleatória da dificuldade desejada
         $sql = "SELECT id, dificuldade FROM questoes_show_do_milhao 
                 WHERE dificuldade = '{$_SESSION['dificuldade']}' 
                 ORDER BY RAND() 
@@ -32,7 +32,7 @@ if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao
             die("Nenhuma questão disponível para a dificuldade: {$_SESSION['dificuldade']}");
         }
 
-        //Continua o loop se já foi sorteada ou dificuldade diferente (extra segurança)
+        //Continua o loop se já foi sorteada ou dificuldade diferente
     } while (in_array($questao_id, $_SESSION['perguntas_sorteadas']) || $dificuldade_questao !== $_SESSION['dificuldade']);
 
     //Define a nova questão atual
@@ -40,7 +40,9 @@ if (isset($_SESSION['questao_atual']) && $_SESSION['status'] == 'acertou_questao
     $_SESSION['status'] = "nova_pergunta";
     $_SESSION['perguntas_sorteadas'][] = $questao_id;
 
-    header("Location: ../area_jogo.php");
+    $base_url = "/ShowMilhao";
+
+    header("Location: $base_url/area_jogo.php");
     exit;
 }
 ?>

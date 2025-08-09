@@ -1,33 +1,38 @@
 <?php
 session_start();
-$pontuacao = $_SESSION['pontuacao'] ?? 0;
-//Se ele parar em meio ao jogo a pontuação é fechada com a pontuação que foi definida
+//se a pulos disponiveis o status é modificado e as variaveis alteradas para a proxima questao
+//não pode pular a questao topa tudo
+if (isset($_SESSION['pulos']) && $_SESSION['pulos'] >= 1 && $_SESSION['pergunta'] <= 15) {
+    $_SESSION['pulos'] -= 1;
+    $_SESSION['status'] = 'pulou_questao';
+    $_SESSION['pergunta'] += 1;
+    $_SESSION['mensagem_pulo'] = "Pulou questão!";
+    $aux = 1;
+} else { //caso não ouver mais pulos a mensagem é diferente o botão leva diretamente para a área jogo novamente
+    $aux = 0;
+    $_SESSION['mensagem_pulo'] = "Você NÃO tem mais pulos disponíveis.";
+}
 ?>
 <!--HTML-->
-
 <head>
     <link rel="icon" href="img/2.png" type="imagex/x-icon">
     <title>Show do Milhão</title>
 </head>
 <?php
-include "index_cabecalho.php";
+include "../index_cabecalho.php";
 ?>
 <div class="wrapper">
     <div id="bloco">
+        <h1><?= $_SESSION['mensagem_pulo'] ?></h1><br>
+        <img src="../img/coelho.png" alt="coelho pulando">
+        <h3 id="pont">Sua pontuação: <?php echo $_SESSION["pontuacao"]; ?></h3>
         <?php
-        if ($_SESSION['pergunta'] > 16) {
-            echo "<img src='./img/trofeu.png' alt='trofeu' id='trofeu'/>";
-            echo "<h2>Parabéns! Você venceu o Show do Milhão!</h2>";
-        } elseif ($_SESSION['pergunta'] == 16) {
-            echo "<img src='./img/fim.png' alt='Game Over'/>";
-            echo "<h2>Você perdeu o TOPA TUDO. Tente Novamente!</h2>";
-        } else {
-            echo "<img src='./img/fim.png' alt='Game Over'/>";
-            echo "<h2>Você parou em meio ao jogo ou errou uma questão. Tente Novamente!</h2>";
+        if ($aux == 0) {//se não possuir mais pulos retorna para a area do jogo
+            echo "<a href='../area_jogo.php' id='BotaoJogo'>Voltar</a>";
+        } elseif ($aux == 1) {//se possuir pulos vai para a proxima questao
+            echo "<a href='../questao/sorteia_questao.php' id='BotaoJogo'>Continuar</a>";
         }
         ?>
-        <h3 id="pont">Sua pontuação: <?php echo $pontuacao; ?></h3>
-        <a href='inicio_jogo.php' id="BotaoJogo">Jogar Novamente</a>
     </div>
 </div>
 </body>
@@ -64,11 +69,10 @@ include "index_cabecalho.php";
         box-shadow: 1px 2px 15px rgba(255, 215, 0, 0.3);
         width: 40%;
         border-radius: 10px;
-        text-align: center;
     }
 
-    #bloco #trofeu {
-        margin-bottom: 25px;
+    #bloco img {
+        width: 200px;
     }
 
     #BotaoJogo {
