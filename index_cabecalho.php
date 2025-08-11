@@ -2,6 +2,15 @@
 if (session_status() === PHP_SESSION_NONE) {//verifica se possui uma secao iniciada ou nao
     session_start();
 }
+
+//mostra quantas cartas podem ser usadas
+//0 - usou todas as chances
+//1 - ainda pode usar uma carta
+if ($_SESSION['Usocartas'] >= 1) {
+    $usoDasCartas = 0;
+} else {
+    $usoDasCartas = 1;
+}
 ?>
 <!--HTML-->
 
@@ -36,7 +45,7 @@ if (session_status() === PHP_SESSION_NONE) {//verifica se possui uma secao inici
             <div>
                 <div>Cartas</div>
                 <div>
-                    <p><strong><?php echo $_SESSION['cartas'] ?></strong>
+                    <p><strong><?php echo $usoDasCartas ?></strong>
                     <p>
                 </div>
             </div>

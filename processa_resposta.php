@@ -26,9 +26,9 @@ if (isset($_POST['resposta'])) {
         }
         $_SESSION['status'] = "acertou_questao";
     } else {
-        if ($_SESSION['pontuacao'] > 0) {
+        if ($_SESSION['pontuacao'] > 0) { //se a pontuação for maior que 0, perde metade
             $_SESSION['pontuacao'] = floor($_SESSION['pontuacao'] / 2);
-        }
+        }//se for a 16 (topa-tudo) pergunta, zera a pontuação
         if ($_SESSION['pergunta'] == 16) {
             $_SESSION['pontuacao'] = 0;
         }

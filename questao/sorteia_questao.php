@@ -17,10 +17,18 @@ if (($_SESSION['status'] == 'acertou_questao' || $_SESSION['status'] == 'pulou_q
 
     do {
         //Sorteia uma questão aleatória da dificuldade desejada
-        $sql = "SELECT id, dificuldade FROM questoes_show_do_milhao 
+        $categoria = $_SESSION['categoria'];
+        if ($_SESSION['categoria'] === "aleatorio") {
+            $sql = "SELECT id, dificuldade FROM questoes_show_do_milhao 
                 WHERE dificuldade = '{$_SESSION['dificuldade']}' 
                 ORDER BY RAND() 
                  LIMIT 1";
+        } else {
+            $sql = "SELECT id, dificuldade FROM questoes_show_do_milhao 
+                    WHERE dificuldade = '{$_SESSION['dificuldade']}' and categoria = '$categoria'
+                    ORDER BY RAND() 
+                    LIMIT 1";
+        }
         $res = $conexao->query($sql);
 
         if ($res && $res->num_rows > 0) {
