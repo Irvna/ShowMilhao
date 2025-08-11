@@ -56,29 +56,24 @@ include "../index_cabecalho.php";
             </p>
             <p>Categoria: *
                 <select name="categoria">
-                    <option value="">Selecione a Categoria: *</option>
-                    <option value="geografia">Geografia</option>
-                    <option value="ciencia">Ciência</option>
-                    <option value="biologia">Biologia</option>
-                    <option value="entretenimento">Entretenimento</option>
-                    <option value="conhecimentos-gerais">Conhecimentos Gerais</option>
-                    <option value="economia">Economia</option>
-                    <option value="esportes">Esportes</option>
-                    <option value="musica">Música</option>
-                    <option value="cultura">Cultura</option>
-                    <option value="matematica">Matemática</option>
-                    <option value="portugues">Português</option>
                     <option value="arte">Arte</option>
-                    <option value="historia">História</option>
+                    <option value="ciencia">Ciência</option>
                     <option value="literatura">Literatura</option>
                     <option value="politica">Política</option>
+                    <option value="geografia">Geografia</option>
+                    <option value="musica">Música</option>
+                    <option value="biologia">Biologia</option>
                     <option value="jogos">Jogos</option>
                     <option value="tecnologia">Tecnologia</option>
-                    <option value="filosofia">Filosofia</option>
+                    <option value="matematica">Matemática</option>
+                    <option value="cultura">Cultura</option>
+                    <option value="historia">História</option>
+                    <option value="astronomia">Astronomia</option>
                     <option value="fisica">Física</option>
                     <option value="quimica">Química</option>
-                    <option value="astronomia">Astronomia</option>
-                    <option value="computacao">Computação</option>
+                    <option value="filosofia">Filosofia</option>
+                    <option value="esportes">Esportes</option>
+                    <option value="conhecimentos-gerais">Conhecimentos Gerais</option>
                 </select>
             </p>
             <p>Alternativa A: * <input name="alternativa_a" type="text"></p>
