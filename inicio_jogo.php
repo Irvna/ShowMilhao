@@ -70,6 +70,7 @@ include "index_cabecalho.php";
     .wrapper {
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
     }
 
