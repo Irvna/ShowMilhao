@@ -56,9 +56,10 @@ O arquivo **BD.sql** contém as instruções para criação do banco e inserçã
 - **Topa Tudo:** 
 
 ## Tecnologias Utilizadas
-- **PHP 8+**
+- **PHP**
 - **MySQL**
 - **HTML5 / CSS3**
 - **JavaScript (auxiliar)**
 - **XAMPP (ambiente de desenvolvimento)**
+
 
