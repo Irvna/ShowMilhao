@@ -27,13 +27,13 @@ O projeto possui uma interface de administração que permite cadastrar novas pe
 
 ### 2. Modo de Jogo "Show do Milhão"
 - **Início do jogo**: acesso rápido e sem necessidade de login.
-- **Jogar por categoria**: é possível jogar cem uma categoria especifica.
+- **Jogar por categoria**: é possível jogar sem ou com uma categoria especifica.
 - **Sorteio das questões**: perguntas são sorteadas aleatoriamente de acordo com a dificuldade:
   - Questões 1 a 5 → **Fácil**
   - Questões 6 a 10 → **Médio**
   - Questões 11 a 15 → **Difícil**
   - Questão 16 (opcional) → **Topa Tudo ou Nada**
-- **Pontuação**: baseada no número da questão, definido no arquivo questoes_valores.
+- **Pontuação**: baseada no número da questão, cada questão possue um valor especifíco, definido no arquivo questoes_valores.
 - **Ajuda ao jogador**:  
   - **Cartas**: elimina alternativas incorretas, 0 a 3 alternativas, sorteadas aleatóriamente (máximo de uso 1x).  
   - **Pulos**: permite pular perguntas sem penalidade (máximo de uso 3x).  
@@ -61,5 +61,3 @@ O arquivo **BD.sql** contém as instruções para criação do banco e inserçã
 - **HTML5 / CSS3**
 - **JavaScript (auxiliar)**
 - **XAMPP (ambiente de desenvolvimento)**
-
-
